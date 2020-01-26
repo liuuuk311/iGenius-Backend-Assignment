@@ -44,7 +44,7 @@ Each endpoint manipulates or displays information related to the Calendar of the
 Endpoints for viewing and manipulating the Events of a given Calendar
 
 * [Create](docs/event/add.md) : `POST /api/calendar/<calendar_id>/event`
-* [List of a User's Events](docs/event/get_all_from_user.md) : `GET /api/user/<int:user_id>/event`
+* [List of a User's Events](docs/event/get_all_from_user.md) : `GET /api/user/<user_id>/event`
 * [List of a Calendar's Events](docs/event/get_all_from_calendar.md) : `GET /api/calendar/<calendar_id>/event`
 * [Get One](docs/event/get_one.md) : `GET /api/event/<event_id>` 
 * [Edit One](docs/event/put_one.md) : `PUT /api/event/<calendar_id>`
