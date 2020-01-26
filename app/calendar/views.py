@@ -14,7 +14,8 @@ from ..errors import InternalError, NotFoundError, ForbiddenError
 @requires_auth
 def get_all(user_id):
     """
-    Handle requests to the /<int:user_id>/calendar route
+        Handle GET requests to the /user/<int:user_id>/calendar route
+        Returns the list of all calendars for a given user
     """
     try:
         user = __get_logged_in_user(user_id)
@@ -42,7 +43,10 @@ def get_all(user_id):
 @calendar.route('/user/<int:user_id>/calendar', methods=['POST'])
 @requires_auth
 def add_one(user_id):
-
+    """
+        Handle POST requests to the /user/<int:user_id>/calendar route
+        Create a new calendar for a given user
+    """
     try:
         user = __get_logged_in_user(user_id)
 
@@ -86,9 +90,9 @@ def add_one(user_id):
 @requires_auth
 def get_one(cal_id):
     """
-        Handle GET /calendar/<calendar_id>
+        Handle GET requests to the /calendar/<calendar_id> route
 
-        Get a given Calendar
+        Get a specific Calendar
     """
     try:
         # Get the calendar
@@ -131,9 +135,9 @@ def get_one(cal_id):
 @requires_auth
 def put_one(cal_id):
     """
-        Handle PUT /calendar/<calendar_id>
+        Handle PUT requests to the /calendar/<calendar_id> route
 
-        Update a given Calendar
+        Update a specific Calendar
     """
     try:
         # Get the calendar
@@ -181,9 +185,9 @@ def put_one(cal_id):
 @requires_auth
 def delete_one(cal_id):
     """
-        Handle DELETE /calendar/<calendar_id>
+        Handle DELETE requests to the /calendar/<calendar_id> route
 
-        Delete a given Calendar
+        Delete a specific Calendar
     """
     try:
         # Get the calendar
