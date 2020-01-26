@@ -67,3 +67,5 @@ curl -X POST \
     "details": "Email already in use"
 }
 ```
+
+[Back](../README.md)
