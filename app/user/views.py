@@ -12,7 +12,10 @@ from ..errors import UnauthorizedError, BadRequestError, InternalError
 @user.route('signup', methods=['POST'])
 def add_one():
     """
-    Handle requests to the /signup route
+        Handle POST requests to the /user/signup route
+        Note: /user is prefixed so it can be left out
+        
+        Create a new user
     """
 
     try:
@@ -40,7 +43,10 @@ def add_one():
 @user.route('login', methods=['POST'])
 def login():
     """
-    Handle requests to the /login route
+        Handle POST requests to the /user/login route
+        Note: /user is prefixed so it can be left out
+        
+        Log in a given user
     """
     try:
         user = User.query.filter_by(email=request.form['email']).first()
@@ -75,7 +81,10 @@ def login():
 @user.route('logout', methods=['POST'])
 def logout():
     """
-    Handle requests to the /logout route
+        Handle POST requests to the /user/logout route
+        Note: /user is prefixed so it can be left out
+        
+        Log out a given user
     """
     try:
         user = User.query.filter_by(email=request.form['email']).first()
