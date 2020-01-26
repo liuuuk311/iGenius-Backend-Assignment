@@ -49,4 +49,3 @@ Endpoints for viewing and manipulating the Events of a given Calendar
 * [Get One](docs/event/get_one.md) : `GET /api/event/<event_id>` 
 * [Edit One](docs/event/put_one.md) : `PUT /api/event/<calendar_id>`
 * [Remove](docs/event/delete.md) : `DELETE /api/event/<event_id>`
-user/<int:user_id>/
