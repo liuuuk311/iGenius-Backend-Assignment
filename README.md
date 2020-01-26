@@ -7,7 +7,7 @@ Open endpoints require no Authentication.
 * [Signup](docs/signup.md) : `POST /api/user/signup/`
 * [Login](docs/login.md) : `POST /api/user/login/`
 * [Logout](docs/logout.md) : `POST /api/user/logout/`
-* [Availability](docs/available.md) : `GET /api/user/<user_id>/available/` [**NOT IMPLEMENTED YET**]
+* [Availability](docs/available.md) : `GET /api/user/<user_id>/available/`
 
 ## Endpoints that require Authentication
 

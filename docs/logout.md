@@ -53,3 +53,4 @@ curl -X POST \
     "message": "User is already logged-out"
 }
 ```
+[Back](../README.md)
