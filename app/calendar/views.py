@@ -17,17 +17,10 @@ def get_all(user_id):
     Handle requests to the /<int:user_id>/calendar route
     """
     try:
-        # Get the user
-        user = db.session.query(User).filter_by(id=user_id).first()
-
-        if user is None:
-            raise NotFoundError('User does not exists')
+        user = __get_logged_in_user(user_id)
 
         if user.email != request.authorization['username']:
             raise ForbiddenError('Cannot access at this resource')
-
-        if not user.active:
-            raise UnauthorizedError('User is not logged-in')
 
         calendars = Calendar.query.filter_by(user_id=user_id).all()
 
@@ -51,17 +44,10 @@ def get_all(user_id):
 def add_one(user_id):
 
     try:
-        # Get the user
-        user = db.session.query(User).filter_by(id=user_id).first()
-
-        if user is None:
-            raise NotFoundError('User does not exists')
+        user = __get_logged_in_user(user_id)
 
         if user.email != request.authorization['username']:
             raise ForbiddenError('Cannot access at this resource')
-
-        if not user.active:
-            raise UnauthorizedError('User is not logged-in')
 
         # Create the new calendar
         calendar = Calendar(name=request.form['name'],
@@ -237,3 +223,17 @@ def delete_one(cal_id):
                            'message': str(e)
 
                            }, indent=4), InternalError.status_code
+
+
+def __get_logged_in_user(user_id):
+    """" Helper function: Get a user from db if he/she is logged-in """
+
+    user = db.session.query(User).filter_by(id=user_id).first()
+
+    if user is None:
+        raise NotFoundError('User does not exists')
+
+    if not user.active:
+        raise UnauthorizedError('User is not logged-in')
+
+    return user
