@@ -1,0 +1,29 @@
+import os
+
+
+class Config(object):
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite://")
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class DevelopmentConfig(Config):
+    """
+    Development configurations
+    """
+
+    DEBUG = True
+    SQLALCHEMY_ECHO = True
+
+
+class ProductionConfig(Config):
+    """
+    Production configurations
+    """
+
+    DEBUG = False
+
+
+app_config = {
+    'development': DevelopmentConfig,
+    'production': ProductionConfig
+}   
