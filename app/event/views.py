@@ -17,7 +17,7 @@ from ..errors import InternalError, NotFoundError, ForbiddenError
 def get_all_event_from_calendar(cal_id):
     """
         Handle GET /calendar/<calendar_id>/event
-        
+
         Get all the Events for a given Calendar
 
         Parameters:
@@ -84,7 +84,7 @@ def get_all_event_from_calendar(cal_id):
 def get_all_event_from_user(user_id):
     """
         Handle GET /user/<user_id>/event
-        
+
         Get all the Events for a given Users
 
         Parameters:
@@ -165,9 +165,7 @@ def get_availability(user_id):
         if user is None:
             raise NotFoundError('User does not exists')
 
-
         # Get the dates
-
         if 'from' in request.args and 'until' in request.args:
             from_date = datetime.strptime(
                             request.args['from'], '%Y-%m-%d %H:%M:%S')
