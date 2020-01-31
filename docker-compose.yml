@@ -19,7 +19,7 @@ services:
     environment:
       - POSTGRES_USER=flask_user
       - POSTGRES_PASSWORD=superpassword
-      - POSTGRES_DB=sailogy_dev
+      - POSTGRES_DB=igenius_dev
 
 volumes:
   postgres_data:
