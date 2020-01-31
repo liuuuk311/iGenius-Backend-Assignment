@@ -7,4 +7,4 @@
 
 ---
 3. (Optional) Inpect volume `$ docker volume inspect sailogy_postgres_data`
-4. (Optional) Connect to DB `$ docker-compose exec db psql --username=flask_user --dbname=sailogy_dev`
+4. (Optional) Connect to DB `$ docker-compose exec db psql --username=flask_user --dbname=igenius_dev`
